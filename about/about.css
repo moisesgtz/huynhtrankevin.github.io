@@ -1,0 +1,12 @@
+.content {
+  background: linear-gradient(0deg, rgba(30,77,120,1) 45%, rgba(255,255,255,1) 90%) !important;
+}
+
+.content_container {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 5%);
+  background: white;
+}
+
+.footer {
+  margin-top: 0;
+}

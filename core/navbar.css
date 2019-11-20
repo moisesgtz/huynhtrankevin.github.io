@@ -1,0 +1,46 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+  font-size: 30px;
+  background-color: #1e4d78;
+  transition: background-color 0.15s;
+  box-shadow: 0px 2px 5px 3px #00000042;
+}
+
+.navbar_logo {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #ffffff;
+  position: fixed;
+  left: 20px;
+  font-family: din-alt;
+}
+
+.navbar_logo:hover {
+  cursor: pointer;
+}
+
+.navbar_logo text{
+  transform: translateY(75%);
+}
+
+.navbar_option {
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  margin: 0.5em;
+  transition: 0.2s transform, 0.2s text-shadow;
+  text-decoration: none;
+  font-family: 'Cairo';
+  line-height: 1em;
+  letter-spacing: 0.08em;
+}
