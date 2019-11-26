@@ -87,14 +87,22 @@ class GalleryController {
   loadResponsiveGallery() {
     let container = $(".content");
     let container_width = container.width();
+    let photos_per_row;
+    let window_ratio = $(window).height() / $(window).width();
+    if (window_ratio > 1) {
+      photos_per_row = 1;
+    } else {
+      photos_per_row = 4;
+    }
     let images = this.images;
-    let photos_per_row = 4;
-    let width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img").css("margin-left"), 10));
-    let height = width;
+    console.log(container_width);
+    let img_width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img").css("margin-left"), 10));
+    let img_height = img_width;
 
     $.each(images, function(index, value) {
-      images[index].updateSize(width, height);
+      images[index].updateSize(img_width, img_height);
     });
+
   }
 
   loadGalleryImageClick() {
@@ -141,7 +149,20 @@ class GalleryController {
       this.focusedImage = id;
       images[id].showing = true;
       $(".gallery").css("height", container.height() - $(".navbar").height() - (2 * parseInt($(".content_title").css("margin-top"), 10)));
-      images[id].updateSize("auto", container.height() - $(".navbar").height() - (2 * parseInt($(".content_title").css("margin-top"), 10)));
+
+      let window_ratio = $(window).height() / $(window).width();
+      if (window_ratio > 1) {
+        images[id].updateSize($(".content").width(), "auto");
+        let img_height = $(images[id].elem).height();
+        let gal_y = ($(window).height() / 2) + (img_height / 2)
+        $(".gallery-return").css("left", "50vw");
+        $(".gallery-return").css("top", `${gal_y}px`);
+        $(".gallery-return").css("transform", "translateX(-50%)");
+        console.log(gal_y);
+      } else {
+        images[id].updateSize("auto", container.height() - $(".navbar").height() - (2 * parseInt($(".content_title").css("margin-top"), 10)));
+      }
+
       $(images[id].elem).addClass("active-image");
       $(".content_title").css("display", "none");
       $.each(images, function(index, value) {
@@ -161,7 +182,6 @@ class GalleryController {
       let container = $(".content");
       let gc = this;
       let images = this.images;
-      console.log(this.focusedImage);
       images[this.focusedImage].showing = false;
       $(".gallery").css("height", "");
       $(images[this.focusedImage].elem).removeClass("active-image");
@@ -189,9 +209,12 @@ class GalleryController {
     gal_return.css("opacity", "1");
     gal_return.css("z-index", "999");
 
-    let gallery = $(".gallery");
-    let y = gallery.position().top;
-    gal_return.css("top", y);
+    let window_ratio = $(window).height() / $(window).width();
+    if (window_ratio < 1) {
+      let gallery = $(".gallery");
+      let y = gallery.position().top;
+      gal_return.css("top", y);
+    }
   }
 
   hidereturnButton(){
@@ -254,9 +277,12 @@ class GalleryImage {
     if(width == "auto"){
       $(this.elem).css("width", `auto`);
       $(this.elem).css("height", `${height}px`);
-    } else {
+    } else if (height == "auto"){
       $(this.elem).css("width", `${width}px`);
+      $(this.elem).css("height", `auto`);
+    } else {
       $(this.elem).css("height", `${height}px`);
+      $(this.elem).css("width", `${width}px`);
     }
   }
 }

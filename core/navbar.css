@@ -7,7 +7,6 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  margin-bottom: 20px;
 
   font-size: 30px;
   background-color: #1e4d78;

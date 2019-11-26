@@ -18,7 +18,7 @@ function navBarListener(){
   });
 
   $(".navbar_logo").click(function(){
-    window.location.href = "./index.html";
+    window.location.href = "../landing/index.html";
   });
 
   $(window).scroll(function(){

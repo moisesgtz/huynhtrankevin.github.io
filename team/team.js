@@ -5,6 +5,7 @@ class GalleryController {
     this.images = [];
     this.timer = 0;
     this.focusedImage = -1;
+    this.photos_per_row;
   }
 
   loadGallery() {
@@ -93,18 +94,28 @@ class GalleryController {
   loadResponsiveGallery() {
     let container = $(".content");
     let container_width = container.width();
+    let photos_per_row;
+    let window_ratio = $(window).height() / $(window).width();
+    if (window_ratio > 1) {
+      photos_per_row = 1;
+    } else {
+      photos_per_row = 4;
+    }
+    this.photos_per_row = photos_per_row;
     let images = this.images;
-    let photos_per_row = 4;
-    let width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img-container").css("margin-left"), 10));
-    let height = width;
+    console.log(container_width);
+    let img_width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img").css("margin-left"), 10));
+    let img_height = img_width;
 
     $.each(images, function(index, value) {
-      images[index].updateSize(width, height);
+      images[index].updateSize(img_width, img_height);
     });
+
   }
 
 
   loadGalleryImageHover() {
+    let gc = this;
     let img_containers = $(".gallery-img-container");
     img_containers.each(function(index){
       $(this).hover(function(){
@@ -115,14 +126,19 @@ class GalleryController {
         img.css("filter", "blur(2px)");
         img_text.css("opacity", "1");
       }, function(){
-        let container = $(this);
-        let img = $(`#img${index}`);
-        let img_text = $(`#img${index}-text`);
-        container.css("cursor", "");
-        img.css("filter", "");
-        img_text.css("opacity", "0");
+        if(gc.photos_per_row != 1){
+          let container = $(this);
+          let img = $(`#img${index}`);
+          let img_text = $(`#img${index}-text`);
+          container.css("cursor", "");
+          img.css("filter", "");
+          img_text.css("opacity", "0");
+        }
       });
-    })
+      if(gc.photos_per_row == 1){
+        $(`#img${index}-text`).css("opacity", "1");
+      }
+    });
   }
 
 

@@ -4,6 +4,7 @@ body {
 
 .content {
   padding: 0 10vw;
+  justify-content: flex-start;
 }
 
 .content_title {
@@ -15,7 +16,7 @@ body {
 .gallery {
   display: flex;
   flex-flow: row wrap;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
