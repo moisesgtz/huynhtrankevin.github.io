@@ -9,7 +9,10 @@ class GalleryController {
 
   loadGallery() {
     //Array of image sources
-    let image_sources = ["../images/gallery/legtrek_3dmodel_bottomangle.png",
+    let image_sources = ["../images/gallery/pres_img1.jpg",
+                          "../images/gallery/pres_img2.jpg",
+                          "../images/gallery/pres_img3.jpg"
+                          "../images/gallery/legtrek_3dmodel_bottomangle.png",
                           "../images/gallery/legtrek_3dmodel_topangle.png",
                           "../images/gallery/legtrek_3dmodel_side.png",
                           "../images/gallery/legtrek_3dmodel_sit2stand.gif",
@@ -21,7 +24,10 @@ class GalleryController {
                           "../images/gallery/legtrek_realmodel3.gif"
                         ];
 
-    let title_texts = ["3D Model Bottom Angle",
+    let title_texts = ["Electronics Enclosure",
+                        "Full Device",
+                        "Battery Enclosure",
+                        "3D Model Bottom Angle",
                         "3D Model Top Angle",
                         "3D Model Side Angle",
                         "3D Model Sit-to-Stand",
@@ -33,7 +39,10 @@ class GalleryController {
                         "Test Demo 3"
                       ];
 
-    let desc_texts = ["3D Model Bottom Angle",
+    let desc_texts = ["Electronics Enclosure",
+                        "Full Device",
+                        "Battery Enclosure",
+                        "3D Model Bottom Angle",
                         "3D Model Top Angle",
                         "3D Model Side Angle",
                         "3D Model Sit-to-Stand",
@@ -45,7 +54,10 @@ class GalleryController {
                         "Test Demo 3"
                       ];
 
-    let date_texts = ["2018-2019",
+    let date_texts = ["2020",
+                        "2020",
+                        "2020",
+                        "2018-2019",
                         "2018-2019",
                         "2018-2019",
                         "2018-2019",
