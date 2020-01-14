@@ -11,7 +11,7 @@ class GalleryController {
     //Array of image sources
     let image_sources = ["../images/gallery/pres_img1.jpg",
                           "../images/gallery/pres_img2.jpg",
-                          "../images/gallery/pres_img3.jpg"
+                          "../images/gallery/pres_img3.jpg",
                           "../images/gallery/legtrek_3dmodel_bottomangle.png",
                           "../images/gallery/legtrek_3dmodel_topangle.png",
                           "../images/gallery/legtrek_3dmodel_side.png",
