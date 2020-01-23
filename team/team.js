@@ -10,17 +10,17 @@ class GalleryController {
 
   loadGallery() {
     //Array of image sources
-    let image_sources = ["../images/team/aaron.jpg",
-                          "../images/team/andrew.jpg",
-                          "../images/team/brandon.jpg",
-                          "../images/team/jake.png",
-                          "../images/team/jot.jpg",
-                          "../images/team/kevintran.jpg",
-                          "../images/team/lauren.jpg",
-                          "../images/team/michael.jpg",
-                          "../images/team/min.jpg",
-                          "../images/team/pari.jpg",
-                          "../images/team/phu.jpg"
+    let image_sources = ["./images/team/aaron.jpg",
+                          "./images/team/andrew.jpg",
+                          "./images/team/brandon.jpg",
+                          "./images/team/jake.png",
+                          "./images/team/jot.jpg",
+                          "./images/team/kevintran.jpg",
+                          "./images/team/lauren.jpg",
+                          "./images/team/michael.jpg",
+                          "./images/team/min.jpg",
+                          "./images/team/pari.jpg",
+                          "./images/team/phu.jpg"
                         ];
 
     let title_texts = ["Aaron Nguyen",
@@ -86,25 +86,37 @@ class GalleryController {
 
     this.loadGalleryImageHover();
 
-    $(window).resize(function(gallery){
+    let gallery = this;
+    $(window).resize(function(){
       gallery.loadResponsiveGallery();
-    }, this);
+    });
   }
 
   loadResponsiveGallery() {
-    let container = $(".content");
+    let container = $(".gallery");
     let container_width = container.width();
     let photos_per_row;
-    let window_ratio = $(window).height() / $(window).width();
-    if (window_ratio > 1) {
-      photos_per_row = 1;
-    } else {
+    //let window_ratio = $(window).height() / $(window).width();
+    let window_ratio = $(window).width() / window.screen.width;
+    if (window_ratio >= 0.9) {
       photos_per_row = 4;
+        $(".gallery-img-text").css("font-size", "");
+    } else if (window_ratio >= 0.6){
+      photos_per_row = 3;
+        $(".gallery-img-text").css("font-size", "");
+      $(".content").css("font-size", "20px");
+    } else if (window_ratio >= 0.4){
+      $(".gallery-img-text").css("font-size", "");
+      photos_per_row = 2;
+    } else if (window_ratio >= 0.25){
+      $(".content").css("font-size", "15px");
+      $(".gallery-img-text").css("font-size", "2em");
+      photos_per_row = 1;
     }
+    console.log(window_ratio);
     this.photos_per_row = photos_per_row;
     let images = this.images;
-    console.log(container_width);
-    let img_width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img").css("margin-left"), 10));
+    let img_width = (container_width / photos_per_row) - (photos_per_row * parseInt($(".gallery-img-container").css("margin-left"), 10));
     let img_height = img_width;
 
     $.each(images, function(index, value) {

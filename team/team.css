@@ -18,6 +18,7 @@ body {
   justify-content: left;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  width: 100%;
 }
 
 .gallery-return {
@@ -52,7 +53,7 @@ body {
 }
 
 .gallery-img {
-  transition: opacity 0.5s, transform 0.3s, height 0.3s, width 0.3s, filter 0.15s ease-out;
+  transition: opacity 0.5s, transform 0.15s, height 0.15s, width 0.15s, filter 0.15s ease-out;
   user-select: none;
   transform: translateZ(0); /* Fixes blur jitter on unblur */
   filter: blur(0.1px); /* Fixes blur jitter on unblur */
@@ -64,7 +65,7 @@ body {
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: left;
-  margin-left: 20px;
+  margin-left: 0.5em;
   bottom: 30px;
   transition: opacity 0.5s;
   z-index: 9999;
