@@ -100,18 +100,20 @@ class GalleryController {
     let window_ratio = $(window).width() / window.screen.width;
     if (window_ratio >= 0.9) {
       photos_per_row = 4;
-        $(".gallery-img-text").css("font-size", "");
+      $(".content").css("font-size", "");
+      $(".gallery-img-text").css("font-size", "");
     } else if (window_ratio >= 0.6){
       photos_per_row = 3;
-        $(".gallery-img-text").css("font-size", "");
       $(".content").css("font-size", "20px");
-    } else if (window_ratio >= 0.4){
       $(".gallery-img-text").css("font-size", "");
+    } else if (window_ratio >= 0.4){
       photos_per_row = 2;
+      $(".content").css("font-size", "20px");
+      $(".gallery-img-text").css("font-size", "");
     } else if (window_ratio >= 0.25){
+      photos_per_row = 1;
       $(".content").css("font-size", "15px");
       $(".gallery-img-text").css("font-size", "2em");
-      photos_per_row = 1;
     }
     console.log(window_ratio);
     this.photos_per_row = photos_per_row;
