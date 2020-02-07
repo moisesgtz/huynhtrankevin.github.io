@@ -4,6 +4,7 @@ function applyBodyCSS(navbar_height) {
 
 function navBarListener(){
   let navbar = $(".navbar");
+  let logo = $(".navbar_logo");
   let options = $(".navbar_option");
   let atTop = false;
 
@@ -21,6 +22,20 @@ function navBarListener(){
     window.location.href = "/";
   });
 
+  navbar.hover(function(){ //MAXIMIZE, essentially reset
+    navbar.css("background-color", "#1e4d78");
+    navbar.css("height", "10%");
+    logo.css("padding", "10px 15px 10px 0px");
+    logo.css("height", "1.5em");
+    options.css("font-size", "1em");
+  }, function (){ //MINMIZE
+    navbar.css("background-color", "#1e4d78d6");
+    navbar.css("height", "5%");
+    logo.css("padding", "5px 15px 5px 0px");
+    logo.css("height", "1em");
+    options.css("font-size", "0.8em");
+  });
+
   $(window).scroll(function(){
     var windowTop = $(window).scrollTop();
     var windowBot = windowTop + $(window).height();
@@ -28,22 +43,25 @@ function navBarListener(){
     var navbarTop = navbar.offset().top;
     var navbarBot = navbarTop + navbar.height();
 
-    if ((windowTop <= navbar.height())) {
+    if ((windowTop <= navbar.height())) { //TOP
       navbar.css("background-color", "#1e4d78");
-      $(".navbar_logo_leg").get(0).setAttribute('fill', '#9cc2e5');
-      $(".navbar_logo_trek").get(0).setAttribute('fill','#ffffff');
-      options.css("color", "white");
-    } else {
-      navbar.css("background-color", "white");
-      $(".navbar_logo_leg").get(0).setAttribute('fill', '#1e4d78');
-      $(".navbar_logo_trek").get(0).setAttribute('fill','#9cc2e5');
-      options.css("color", "#1e4d78");
+      navbar.css("height", "10%");
+      logo.css("padding", "10px 15px 10px 0px");
+      logo.css("height", "1.5em");
+      options.css("font-size", "1em");
+    } else { //NOT TOP
+      navbar.css("background-color", "#1e4d78d6");
+      navbar.css("height", "5%");
+      logo.css("padding", "5px 15px 5px 0px");
+      logo.css("height", "1em");
+      options.css("font-size", "0.8em");
     }
   });
 
   $(window).scroll(0);
 }
 
+/*
 function logoSVGCreator(){
   let navbar = $(".navbar");
   let height = navbar.height();
@@ -73,6 +91,7 @@ function logoSVGCreator(){
   (navbar.get(0)).appendChild(svg);
 
 }
+*/
 
 function newsletterResizeListener(){
   let field_email = $("#mce-EMAIL");
@@ -85,7 +104,6 @@ function newsletterResizeListener(){
 }
 
 function pageLoad(){
-  logoSVGCreator();
   navBarListener();
   newsletterResizeListener();
 
