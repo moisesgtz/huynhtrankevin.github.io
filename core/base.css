@@ -72,13 +72,14 @@ body {
 
 .content_container:nth-of-type(odd) .content_text_and_block{
   /* clip-path: polygon(100% 0, 100% 87%, 0 100%, 0 13%); */
-  color: white;
-  background: #1e4d78;
+  color: #cce0f1;
+  background: none;
   /* background: linear-gradient(0deg, rgba(0,133,255,1) 0%, rgba(30,77,120,1) 100%); */
 }
 
 .content_container:nth-of-type(odd){
   flex-direction: row-reverse;
+  background-color: black;
 }
 
 .content_container:nth-of-type(even) .content_text_and_block {

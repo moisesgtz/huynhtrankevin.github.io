@@ -14,19 +14,13 @@ function navBarListener(){
     window.location.href = "/";
   });
 
+  /*
   navbar.hover(function(){ //MAXIMIZE, essentially reset
     navbar.css("height", "");
     logo.css("padding", "");
     logo.css("height", "");
     options.css("font-size", "");
     navbar.css("opacity", "");
-    /*
-    navbar.css("height", "10%");
-    logo.css("padding", "15px");
-    logo.css("height", "1.2em");
-    options.css("font-size", "1em");
-    navbar.css("opacity", "1");
-    */
   }, function (){ //MINMIZE
     if($(window).scrollTop() > navbar.height()) { //ONLY MINIMIZE IF NOT AT THE TOP
       navbar.css("height", "5%");
@@ -37,7 +31,9 @@ function navBarListener(){
       navbar.css("opacity", "0.75");
     }
   });
+  */
 
+  //Change navbar color on scroll
   $(window).scroll(function(){
     var windowTop = $(window).scrollTop();
     var windowBot = windowTop + $(window).height();
@@ -51,20 +47,22 @@ function navBarListener(){
       logo.css("height", "");
       options.css("font-size", "");
       navbar.css("opacity", "");
-      /*
-      navbar.css("height", "10%");
-      logo.css("padding", "15px");
-      logo.css("height", "1.2em");
-      options.css("font-size", "1em");
-      navbar.css("opacity", "1");
-      */
+      options.css("color", "");
+      logo.css("filter", "");
+      navbar.css("background-color", "");
     } else { //NOT TOP
+      options.css("color", "white");
+      //logo.css("filter", "brightness(0) invert(1)");
+      navbar.css("background-color", "black");
+      //Code to resize and fade navbar
+      /*
       navbar.css("height", "5%");
       navbar.css("padding", "10px 0px");
       logo.css("padding", "10px");
       logo.css("height", "1em");
       options.css("font-size", "0.8em");
       navbar.css("opacity", "0.75");
+      */
     }
   });
 

@@ -13,11 +13,14 @@ function isScrolledIntoView(elem) {
 
 function loadContainerAnimations(){
   let containers = $(".content_container");
+  containers.each(function(){
+    $(this).children().addClass("content_wait2fade");
+  });
   $(window).scroll(function(){
     containers.each(function(){
       if(isScrolledIntoView($(this).get(0))){
-        $(this).addClass("content_fadein");
+        $(this).children().addClass("content_fadein");
       }
-    })
+    });
   });
 }

@@ -1,26 +1,35 @@
 body {
   position: relative;
   margin: 0 !important;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 #particles-js {
-  opacity: 0.5;
+  opacity: 1;
   position: absolute;
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: black;
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
 }
 
-.content_container {
-  padding: 0;
+.content_wait2fade {
   opacity: 0;
+  transform: translateY(50px);
   transition: 0.5s opacity, 0.5s transform;
-  margin: 2em 0px;
+}
+
+.content_container {
+  padding: 2em 0px;
+  transition: 0.5s opacity, 0.5s transform;
+  margin: 0;
   transform: translateY(50px);
 }
 
@@ -46,12 +55,9 @@ body {
 
 .footer {
   background: none;
-  position: absolute;
-  width: 52vw;
-  left: 50%;
+  width: 50vw;
   align-items: center;
   justify-content: center;
-  transform: translateX(-50%);
 }
 
 .footer_email_signup {
@@ -70,6 +76,16 @@ body {
   margin-bottom: 0;
 }
 
+#mce-EMAIL.email-top {
+  transition: 0.3s opacity;
+  opacity: 0.7;
+}
+
+#mce-EMAIL.email-top:focus {
+  opacity: 1;
+}
+
+
 #mc_embed_signup.footer_signup{
   width: 35%;
 }
@@ -78,16 +94,52 @@ body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
   width: 100%;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 95%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 90%, rgba(0,0,0,1) 100%);
+  height: 100vh;
 }
 
 .banner {
   width: 45%;
   height: 600px;
   object-fit: contain;
+}
+
+.scroll-indicator {
+  color: white;
+  margin-top: 0.5em;
+  font-size: 2.5em;
+  animation: 1.5s blink infinite alternate, 5s bounce infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  10% {
+    transform: translateY(10px);
+  }
+
+  20% {
+    transform: translateY(0);
+  }
+
+  100% {
+
+  }
 }
 
 #mission {
@@ -105,6 +157,7 @@ body {
 .email-signup-top-text {
   margin-bottom: 1.5em;
   text-align: center;
+  color: white;
 }
 
 .button-top {
@@ -114,7 +167,7 @@ body {
 }
 
 .button-top:hover {
-  background-color: #4a91e8 !important;
+  background-color: #7ec7fd !important;
 }
 
 .signup-container-top {
