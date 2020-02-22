@@ -22,6 +22,7 @@
   <link rel="stylesheet" type="text/css" href="index.css">
   <script src="./core/base.js"></script>
   <script src="./core/particles.js"></script>
+  <script src="index.js"></script>
   <!--<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>-->
 
   <!--
@@ -31,15 +32,15 @@
 
 <body>
   <div class="navbar">
-    <img class="navbar_logo" src="./images/logos/legtrek_navlogo_lowert_blue.svg" alt="LegTrek Logo">
+    <img class="navbar_logo" src="./images/logos/legtrek_navlogo_lowert_lightblue.svg" alt="LegTrek Logo">
     <a class="navbar_option active-page" href="/">Home</a>
     <a class="navbar_option" href="/about">About</a>
     <a class="navbar_option" href="/team">Team</a>
     <a class="navbar_option" href="/gallery">Gallery</a>
   </div>
   <div class="content">
-    <div id="particles-js"></div>
     <div class="banner_container">
+      <div id="particles-js"></div>
       <img class="banner" src="./images/logos/logo_highres_transparent.png">
       <div class="email-signup-top">
         <div class="email-signup-top-text">
@@ -147,13 +148,14 @@
   </div>
   <script>
   pageLoad();
+  loadContainerAnimations();
   var partJson = {
     "particles": {
       "number": {
-        "value": 12,
+        "value": 7,
         "density": {
           "enable": true,
-          "value_area": 300
+          "value_area": 250
         }
       },
       "color": {
@@ -180,12 +182,12 @@
         "anim": {
           "enable": true,
           "speed": 0.1,
-          "opacity_min": 0.6,
+          "opacity_min": 0.4,
           "sync": false
         }
       },
       "size": {
-        "value": 20,
+        "value": 25,
         "random": true,
         "anim": {
           "enable": false,

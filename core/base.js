@@ -107,14 +107,16 @@ function newsletterResizeListener(){
   let field_email = $("#mce-EMAIL");
   let field_submit = $("#mc-embedded-subscribe");
   $(window).resize(function(){
-    let height = field_email.height();
-    field_submit.height(height);
+    field_submit.css("height", `${field_email.height()}px`);
   });
   $(window).trigger("resize");
 }
 
 function pageLoad(){
-  navBarListener();
+  //If NOT main page
+  if(!($("#mission").length)){
+    applyBodyCSS($(".navbar").height());
+  }
   newsletterResizeListener();
 
   console.log("Site Created By: Steven Huynh-Tran (https://www.linkedin.com/in/stevenht)");
