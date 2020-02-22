@@ -26,7 +26,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Titillium Web";
-  font-size: 30px;
+  font-size: 25px;
+  position: relative;
 }
 
 .content_container {
@@ -38,7 +39,7 @@ body {
 }
 
 .content_title {
-  font-size: 2.5em;
+  font-size: 2.2em;
   align-self: flex-start;
   padding: 20px 25px 15px 25px;
   font-family: "Assistant";
@@ -69,9 +70,14 @@ body {
 }
 
 .content_container:nth-of-type(even) {
-  clip-path: polygon(100% 0, 100% 87%, 0 100%, 0 13%);
+  /* clip-path: polygon(100% 0, 100% 87%, 0 100%, 0 13%); */
   color: white;
-  background: linear-gradient(0deg, rgba(0,133,255,1) 0%, rgba(30,77,120,1) 100%);
+  /* background: linear-gradient(0deg, rgba(0,133,255,1) 0%, rgba(30,77,120,1) 100%); */
+  flex-direction: row-reverse;
+}
+
+.content_container:nth-of-type(even) .content_text_and_block {
+  background: #1e4d78b3;
 }
 
 .content_title:nth-of-type(even) {
@@ -95,6 +101,14 @@ body {
 .inline_img_right {
   display: flex;
   margin-right: 10%;
+  width: 25%;
+  height: auto;
+  object-fit: cover;
+}
+
+.inline_img_left {
+  display: flex;
+  margin-left: 10%;
   width: 25%;
   height: auto;
   object-fit: cover;
