@@ -21,6 +21,10 @@
   <link rel="stylesheet" type="text/css" href="./core/footer.css">
   <link rel="stylesheet" type="text/css" href="index.css">
   <script src="./core/base.js"></script>
+  <script src="./core/particles.js"></script>
+  <script src="index.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>-->
+
   <!--
     Site Created By: Steven Huynh-Tran (https://www.linkedin.com/in/stevenht)
   -->
@@ -28,7 +32,7 @@
 
 <body>
   <div class="navbar">
-    <img class="navbar_logo" src="legtrek_navlogo2.svg" alt="LegTrek Logo">
+    <img class="navbar_logo" src="./images/logos/legtrek_navlogo_lowert_lightblue.svg" alt="LegTrek Logo">
     <a class="navbar_option active-page" href="/">Home</a>
     <a class="navbar_option" href="/about">About</a>
     <a class="navbar_option" href="/team">Team</a>
@@ -36,6 +40,7 @@
   </div>
   <div class="content">
     <div class="banner_container">
+      <div id="particles-js"></div>
       <img class="banner" src="./images/logos/logo_highres_transparent.png">
       <div class="email-signup-top">
         <div class="email-signup-top-text">
@@ -63,7 +68,7 @@
     </div>
     <div class="content_container" id="mission">
       <div class="content_text_and_block">
-        <div class="content_title"><i class="fas fa-bell"></i>
+        <div class="content_title"><i class="fas fa-fire"></i>
           Mission
         </div>
         <p>
@@ -74,18 +79,18 @@
     </div>
     <div class="content_container">
       <div class="content_text_and_block">
-        <div class="content_title"><i class="fas fa-balance-scale-left"></i>
-          VWS / Active Assist
+        <div class="content_title"><i class="fas fa-cogs"></i></i>
+          Motorized Gait Assistance
         </div>
         <p>
-          Variable weight support (VWS) allows the user to control how much of their weight is offloaded by the device. Active assist allows the wheelchair to determine the force the user is applying and supply an assistive acceleration.
+          Motorized Gait Assistance is a novel feature that gives a never-before-seen natural feeling for walking. The device sense when the user wants to walk forward, and follows the user seamlessly. An IR sensor tracks when the user is about to take a step, which triggers the device to move as well. This gives a hands-free and gratifying experience for the user because of how intuitive it feels.
         </p>
       </div>
-      <img class="inline_img_right" src="./images/landing/legtrek_3dmodel_standing.png">
+      <img class="inline_img_left" src="./images/landing/legtrek_3dmodel_standing.png">
     </div>
     <div class="content_container">
       <div class="content_text_and_block">
-        <div class="content_title"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
+        <div class="content_title"><i class="fas fa-sync"></i>
           Sit-to-Stand
         </div>
         <p>
@@ -96,8 +101,19 @@
     </div>
     <div class="content_container">
       <div class="content_text_and_block">
-        <div class="content_title"><i class="fas fa-gamepad"></i>
-          Versatile UI
+        <div class="content_title"><i class="fas fa-layer-group"></i>
+          Variable Weight Support
+        </div>
+        <p>
+          Variable Weight Support (VWS) allows the user to control how much of their weight is offloaded by the device. Active assist allows the wheelchair to determine the force the user is applying and supply an assistive acceleration.
+        </p>
+      </div>
+      <img class="inline_img_left" src="./images/landing/legtrek_3dmodel_standing.png">
+    </div>
+    <div class="content_container">
+      <div class="content_text_and_block">
+        <div class="content_title"><i class="far fa-compass"></i>
+          Intuitive User Interface
         </div>
         <p>
           The sit-to-stand mechanism transforms the LegTrek between its two main modes: a powered or passive wheelchair and a motorized gait trainer that can provide intelligent and powered assistance.
@@ -108,8 +124,8 @@
   </div>
   <div class="footer">
     <div class="footer_email_signup">
-      <div class="footer_email_signup_text">Want to get updates whenever there is something new at LegTrek?</br>Sign up for our newsletter!</div>
-      <div id="mc_embed_signup">
+      <div class="footer_email_signup_text">Want to get updates whenever there is something new at LegTrek? Sign up for our newsletter!</div>
+      <div id="mc_embed_signup" class="footer_signup">
         <form action="https://github.us4.list-manage.com/subscribe/post?u=55c4a4473618a8826d053b70e&amp;id=ecbe0438e7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll">
             <div class="mc-field-group">
@@ -132,6 +148,126 @@
   </div>
   <script>
   pageLoad();
+  loadContainerAnimations();
+  var partJson = {
+    "particles": {
+      "number": {
+        "value": 7,
+        "density": {
+          "enable": true,
+          "value_area": 250
+        }
+      },
+      "color": {
+        "value": "#0085ff"
+      },
+      "shape": {
+        "type": "polygon",
+        "stroke": {
+          "width": 0,
+          "color": "#1e4c77"
+        },
+        "polygon": {
+          "nb_sides": 6
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 0.1,
+          "opacity_min": 0.4,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 25,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "size_min": 5,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 350,
+        "color": "#65b5ff",
+        "opacity": 0.5,
+        "width": 2
+      },
+      "move": {
+        "enable": true,
+        "speed": 1.25,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 800,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 800,
+          "size": 80,
+          "duration": 2,
+          "opacity": 0.8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 400,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  };
+  var jsonUri = "data:text/plain;base64,"+window.btoa(JSON.stringify(partJson));
+  particlesJS.load('particles-js', jsonUri, function() {
+    console.log('callback - particles.js config loaded');
+  });
+  /*
+  particlesJS.load('particles-js', './core/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+  */
 </script>
 </body>
 </html>

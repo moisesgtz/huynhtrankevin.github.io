@@ -1,5 +1,7 @@
 body {
   background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .content {
@@ -98,4 +100,32 @@ body {
   line-height: 1em;
   padding-left: 10px;
   border-left: 2px #1e4d78 solid;
+}
+
+.footer {
+  background: none;
+  width: 50vw;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_email_signup {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e4d78;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.footer_email_signup_text {
+  margin-bottom: 0;
+}
+
+#mc_embed_signup.footer_signup{
+  width: 35%;
 }

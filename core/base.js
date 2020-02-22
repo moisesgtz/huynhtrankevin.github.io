@@ -10,30 +10,32 @@ function navBarListener(){
 
   applyBodyCSS(navbar.height());
 
-  options.each(function(){
-    $(this).hover(function(){
-      $(this).css("cursor", "pointer");
-    }, function(){
-      $(this).css("cursor", "auto");
-    });
-  });
-
   $(".navbar_logo").click(function(){
     window.location.href = "/";
   });
 
   navbar.hover(function(){ //MAXIMIZE, essentially reset
-    navbar.css("background-color", "#1e4d78");
+    navbar.css("height", "");
+    logo.css("padding", "");
+    logo.css("height", "");
+    options.css("font-size", "");
+    navbar.css("opacity", "");
+    /*
     navbar.css("height", "10%");
-    logo.css("padding", "10px 15px 10px 0px");
-    logo.css("height", "1.5em");
+    logo.css("padding", "15px");
+    logo.css("height", "1.2em");
     options.css("font-size", "1em");
+    navbar.css("opacity", "1");
+    */
   }, function (){ //MINMIZE
-    navbar.css("background-color", "#1e4d78d6");
-    navbar.css("height", "5%");
-    logo.css("padding", "5px 15px 5px 0px");
-    logo.css("height", "1em");
-    options.css("font-size", "0.8em");
+    if($(window).scrollTop() > navbar.height()) { //ONLY MINIMIZE IF NOT AT THE TOP
+      navbar.css("height", "5%");
+      navbar.css("padding", "10px 0px");
+      logo.css("padding", "10px");
+      logo.css("height", "1em");
+      options.css("font-size", "0.8em");
+      navbar.css("opacity", "0.75");
+    }
   });
 
   $(window).scroll(function(){
@@ -44,17 +46,25 @@ function navBarListener(){
     var navbarBot = navbarTop + navbar.height();
 
     if ((windowTop <= navbar.height())) { //TOP
-      navbar.css("background-color", "#1e4d78");
+      navbar.css("height", "");
+      logo.css("padding", "");
+      logo.css("height", "");
+      options.css("font-size", "");
+      navbar.css("opacity", "");
+      /*
       navbar.css("height", "10%");
-      logo.css("padding", "10px 15px 10px 0px");
-      logo.css("height", "1.5em");
+      logo.css("padding", "15px");
+      logo.css("height", "1.2em");
       options.css("font-size", "1em");
+      navbar.css("opacity", "1");
+      */
     } else { //NOT TOP
-      navbar.css("background-color", "#1e4d78d6");
       navbar.css("height", "5%");
-      logo.css("padding", "5px 15px 5px 0px");
+      navbar.css("padding", "10px 0px");
+      logo.css("padding", "10px");
       logo.css("height", "1em");
       options.css("font-size", "0.8em");
+      navbar.css("opacity", "0.75");
     }
   });
 
@@ -97,14 +107,16 @@ function newsletterResizeListener(){
   let field_email = $("#mce-EMAIL");
   let field_submit = $("#mc-embedded-subscribe");
   $(window).resize(function(){
-    let height = field_email.height();
-    field_submit.height(height);
+    field_submit.css("height", `${field_email.height()}px`);
   });
   $(window).trigger("resize");
 }
 
 function pageLoad(){
-  navBarListener();
+  //If NOT main page
+  if(!($("#mission").length)){
+    applyBodyCSS($(".navbar").height());
+  }
   newsletterResizeListener();
 
   console.log("Site Created By: Steven Huynh-Tran (https://www.linkedin.com/in/stevenht)");
