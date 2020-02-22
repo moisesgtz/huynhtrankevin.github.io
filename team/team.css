@@ -70,7 +70,7 @@ body {
   margin-left: 0.5em;
   bottom: 30px;
   transition: opacity 0.5s;
-  z-index: 9999;
+  z-index: 1;
 }
 
 .gallery-img-title {
