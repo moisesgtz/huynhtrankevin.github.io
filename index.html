@@ -42,7 +42,6 @@
   </div>
   <div class="content">
     <div class="banner_container">
-      <div id="particles-js"></div>
       <img class="banner" src="./images/logos/legtrek_navlogo_new.svg">
       <div class="email-signup-top">
         <div class="email-signup-top-text">
@@ -68,6 +67,8 @@
         </div>
       </div>
       <i class="fas fa-chevron-down scroll-indicator"></i>
+      <video muted id="banner-video">
+      </video>
     </div>
     <div class="content_container" id="mission">
       <div class="content_text_and_block">
@@ -263,14 +264,70 @@
     },
     "retina_detect": true
   };
+  /*
   var jsonUri = "data:text/plain;base64,"+window.btoa(JSON.stringify(partJson));
   particlesJS.load('particles-js', jsonUri, function() {
   });
+  */
   /*
   particlesJS.load('particles-js', './core/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
   */
+</script>
+<!--Video Control-->
+<script>
+var vid_sources = new Array();
+vid_sources[0] = './videos/banner_vid0.mp4';
+vid_sources[1] = './videos/banner_vid1.mp4';
+vid_sources[2] = './videos/banner_vid2.mp4';
+var i = 0; // define i
+var source_count = vid_sources.length;
+
+var banner_video = document.getElementById("banner-video");
+
+function playVideo(videoNum) {
+    banner_video.style.opacity = 1;
+    banner_video.setAttribute("src", vid_sources[videoNum]);
+    banner_video.load();
+    banner_video.play();
+}
+
+banner_video.addEventListener('ended', nextVideo, false);
+banner_video.addEventListener("timeupdate", getTime, false);
+window.addEventListener("resize", setSize, false);
+setSize();
+playVideo(0); // play the video
+
+function setSize(){
+  let windowHeight = window.innerHeight;
+  let windowWidth = window.innerWidth;
+  let ratio = windowHeight / windowWidth;
+  if(ratio >= 1){
+    banner_video.style.width = "auto";
+    banner_video.style.height = "100vh";
+  } else {
+    banner_video.style.width = "100vw";
+    banner_video.style.height = "auto";
+  }
+}
+
+function getTime(){
+  let timeLeft = this.duration - this.currentTime;
+  if(timeLeft <= 1){
+    banner_video.style.opacity = 0;
+  }
+}
+
+function nextVideo() {
+    i++;
+    if (i == (source_count)) {
+        i = 0;
+    }
+    setTimeout(function(){
+      playVideo(i);
+    }, 300);
+}
 </script>
 </body>
 </html>

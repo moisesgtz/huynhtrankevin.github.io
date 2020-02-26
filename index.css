@@ -7,6 +7,15 @@ body {
   justify-content: center;
 }
 
+#banner-video {
+  position: absolute;
+  z-index: 0;
+  width: auto;
+  height: auto;
+  transition: 1s opacity;
+  filter: brightness(0.45);
+}
+
 #particles-js {
   opacity: 1;
   position: absolute;
@@ -97,14 +106,16 @@ body {
   justify-content: center;
   position: relative;
   width: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 90%, rgba(0,0,0,1) 100%);
+  background: black;
   height: 100vh;
+  overflow: hidden;
 }
 
 .banner {
   width: 45%;
   height: 600px;
   object-fit: contain;
+  z-index: 1;
 }
 
 .scroll-indicator {
@@ -112,6 +123,7 @@ body {
   margin-top: 0.5em;
   font-size: 2.5em;
   animation: 1.5s blink infinite alternate, 5s bounce infinite;
+  z-index: 1;
 }
 
 @keyframes blink {
@@ -152,6 +164,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 50%;
+  z-index: 1;
 }
 
 .email-signup-top-text {
