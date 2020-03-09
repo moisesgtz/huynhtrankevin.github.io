@@ -91,11 +91,13 @@ body {
   color: white;
 }
 */
-
+/*
 .content_container:last-of-type {
-  padding-bottom: 0;
+  /*
+   padding-bottom: 0;
+   */
 }
-
+*/
 .content_text p {
   margin-top: 0px;
   display: flex;
